@@ -41,19 +41,34 @@ function weatherClick() {
         })
         .then(function (data) {
             console.log(data, "weather")
+
+            //set data to specific element to a const
           const a = data.temperature;
           const b =  data.wind;
           const c = data.description;
           const d = data.forecast
 
+//display the innerText of city data value.
+
           temperatureWeather.innerText = a;
            windWeather.innerText = b;
            descriptionWeather.innerText = c;
-           forecastWeather.innerText =  d;
+           
+          d.forEach(myWeather);
+
+          function myWeather(d){
+              forecastWeather.innerHTML = d
+              console.log(forecastWeather.innerHTML)
+          }
+               
+           
+
+
+           //forecastWeather.innerHTML =  d;
 
            
            
-            console.log(data.temperature)
+            //console.log(data.temperature)
            
             
             
