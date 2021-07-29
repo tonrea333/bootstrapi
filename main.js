@@ -28,11 +28,11 @@ function weatherClick() {
     const tempLocation = document.querySelector('input[type="text"]');
     const temperatureWeather = document.querySelector("#temperature")
     const windWeather = document.querySelector("#wind");
-    const forecastWeather = document.querySelector("forecast");
-    const descriptionWeather = document.querySelector("description");
+    const forecastWeather = document.querySelector("#forecast");
+    const descriptionWeather = document.querySelector("#description");
     const tempValue = tempLocation.value;
     console.log(tempValue, "value")
-    const cityHold = "https://goweather.herokuapp.com/weather/{tempValue}";
+    const cityHold = "https://goweather.herokuapp.com/weather/" + tempValue;
     console.log(cityHold, 'weather')
 
     fetch(cityHold)
@@ -41,10 +41,22 @@ function weatherClick() {
         })
         .then(function (data) {
             console.log(data, "weather")
-           console.log(data.temperature)
-            data.wind;
-            data.description;
-             data.forecast;
+          const a = data.temperature;
+          const b =  data.wind;
+          const c = data.description;
+          const d = data.forecast
+
+          temperatureWeather.innerText = a;
+           windWeather.innerText = b;
+           descriptionWeather.innerText = c;
+           forecastWeather.innerText =  d;
+
+           
+           
+            console.log(data.temperature)
+           
+            
+            
             
             
 
